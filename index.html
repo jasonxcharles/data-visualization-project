@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Visualization - Jason A. Charles</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Favorite NYC Foods - Data Visualization by Jason A. Charles</h1>
+  <div class="chart-container">
+    <canvas id="doughnutChart"></canvas>
+  </div>
+  <div class="chart-container">
+    <canvas id="barChart"></canvas>
+  </div>
+  <script src="js/charts.js"></script>
+</body>
+</html>
+
+<!-- css/style.css -->
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+  }
+
+  h1 {
+    margin-bottom: 40px;
+  }
+
+  .chart-container {
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+</style>
+
+<!-- js/charts.js -->
+<script>
+  const foodData = {
+    labels: ['Pizza - Jason', 'Bagels', 'Bacon Egg & Cheese', 'Halal', 'Dumplings', 'Hot Dogs'],
+    datasets: [{
+      label: 'Votes',
+      data: [25, 20, 18, 15, 12, 10],
+      backgroundColor: [
+        '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'
+      ],
+    }]
+  };
+
+  const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
+  const doughnutChart = new Chart(doughnutCtx, {
+    type: 'doughnut',
+    data: foodData,
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Jason A. Charles - Favorite NYC Foods (Doughnut Chart)'
+        }
+      }
+    }
+  });
+
+  const barCtx = document.getElementById('barChart').getContext('2d');
+  const barChart = new Chart(barCtx, {
+    type: 'bar',
+    data: foodData,
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Jason A. Charles - Favorite NYC Foods (Horizontal Bar Chart)'
+        },
+        legend: {
+          display: false
+        }
+      }
+    }
+  });
+</script>
