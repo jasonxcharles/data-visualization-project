@@ -1,5 +1,5 @@
 const foodData = {
-  labels: ['Pizza - Jason', 'Bagels', 'Bacon Egg & Cheese', 'Halal', 'Dumplings', 'Hot Dogs'],
+  labels: ['Pizza', 'Bagels', 'Bacon Egg & Cheese', 'Halal', 'Dumplings', 'Hot Dogs'],
   datasets: [{
     label: 'Votes',
     data: [25, 20, 18, 15, 12, 10],
